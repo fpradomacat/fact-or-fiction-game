@@ -1,11 +1,15 @@
 <div>
-    <form (ngSubmit)="addPlayer()">
+    <form (ngSubmit)="savePlayer()">
       <input type="text" [(ngModel)]="playerName" name="playerName" required>
-      <button type="submit">Add Player</button>
+      <button type="submit">{{ isEditing ? 'Update Player' : 'Add Player' }}</button>
+      <button *ngIf="isEditing" type="reset">Cancel</button>
     </form>
   
     <ul>
-      <li *ngFor="let player of players">{{ player }}</li>
+      <li *ngFor="let player of players; let i = index">
+        {{ player }}
+        <button *ngIf="!isEditing" (click)="editPlayer(i)">Edit</button>
+      </li>
     </ul>
   </div>
   
