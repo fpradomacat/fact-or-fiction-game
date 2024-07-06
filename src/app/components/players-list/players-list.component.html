@@ -1,6 +1,6 @@
 <div>
-    <form (ngSubmit)="savePlayer()">
-      <input type="text" [(ngModel)]="playerName" name="playerName" required>
+    <form (ngSubmit)="savePlayer()" (reset)="reset()">
+      <input type="text" [(ngModel)]="playerName" name="playerName" required autocomplete="off">
       <button type="submit">{{ isEditing ? 'Update Player' : 'Add Player' }}</button>
       <button *ngIf="isEditing" type="reset">Cancel</button>
     </form>
