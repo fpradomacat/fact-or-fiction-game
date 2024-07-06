@@ -1,0 +1,11 @@
+<div>
+    <form (ngSubmit)="addPlayer()">
+      <input type="text" [(ngModel)]="playerName" name="playerName" required>
+      <button type="submit">Add Player</button>
+    </form>
+  
+    <ul>
+      <li *ngFor="let player of players">{{ player }}</li>
+    </ul>
+  </div>
+  
